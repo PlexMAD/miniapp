@@ -1,26 +1,30 @@
-import { useEffect } from 'react';
-import './App.css'
-import MainPage from './pages/MainPage/MainPage';
-import DefaultLayout from './layouts/DefaultLayout';
+import "./App.css";
+import MainPage from "./pages/MainPage/MainPage";
+import DefaultLayout from "./layouts/DefaultLayout";
+import { useTelegram } from "./hooks/useTelegram";
+import { useEffect } from "react";
+
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error
 const tg = window.Telegram.WebApp;
+
 function App() {
+  const { user, onClose } = useTelegram();
   useEffect(() => {
-    tg.ready()
+    if (tg) {
+      tg.ready(); // Инициализируем Web App
+      tg.expand(); // Разворачиваем на полный экран (опционально)
+    }
   }, []);
-  const onClose = () => {
-    tg.close()
-  }
   return (
     <>
-      <div className='text-3xl font-bold underline'>sdjnaujnids</div>
-      <button onClick={onClose}>asddas</button>
+      <div className="text-3xl font-bold underline">{user}</div>
+      <button onClick={onClose}></button>
       <DefaultLayout>
         <MainPage />
       </DefaultLayout>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
