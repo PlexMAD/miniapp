@@ -9,7 +9,7 @@ import { useEffect } from "react";
 const tg = window.Telegram.WebApp;
 
 function App() {
-  const { user, onClose } = useTelegram();
+  const { userFirstName, onClose } = useTelegram();
   useEffect(() => {
     if (tg) {
       tg.ready(); // Инициализируем Web App
@@ -18,7 +18,9 @@ function App() {
   }, []);
   return (
     <>
-      <div className="text-3xl font-bold underline">{user}</div>
+      <div className="text-3xl font-bold underline">
+        Привет, {userFirstName}!
+      </div>
       <button onClick={onClose}></button>
       <DefaultLayout>
         <MainPage />

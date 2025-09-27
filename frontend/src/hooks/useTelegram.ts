@@ -8,7 +8,7 @@ export const useTelegram = () => {
   };
   return {
     tg,
-    user: tg.initDataUnsafe?.user?.userName,
+    userFirstName: tg.initDataUnsafe?.user?.first_name,
     onClose,
   };
 };
