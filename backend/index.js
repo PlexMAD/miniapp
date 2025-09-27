@@ -1,7 +1,7 @@
 const TelegramBot = require('node-telegram-bot-api');
 
 const token = '7695137489:AAFGRuN9ECFPf9VhO72Bj_LhmCOBiL1Zbf8';
-const webAppUrl = "https://ya.ru"
+const webAppUrl = "https://miniapp.plexmad.ru/"
 const bot = new TelegramBot(token, { polling: true });
 
 bot.on('message', async (msg) => {
