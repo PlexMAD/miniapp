@@ -12,7 +12,7 @@ function App() {
   }
   return (
     <>
-      <div>sdjnaujnids</div>
+      <div className='text-3xl font-bold underline'>sdjnaujnids</div>
       <button onClick={onClose}>asddas</button>
     </>
   )
