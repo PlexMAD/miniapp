@@ -1,9 +1,10 @@
+import { PageHeader } from "../../components/PageHeader";
 import styles from "./Mainpage.module.scss"
 
 export const MainPage = () => {
   return (
     <div className={styles.header}>
-      <h1>Список игр</h1>
+      <PageHeader>Список игр</PageHeader>
     </div>
   );
 };
