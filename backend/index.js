@@ -1,6 +1,9 @@
 const TelegramBot = require("node-telegram-bot-api");
 const express = require("express");
-const token = "7695137489:AAFGRuN9ECFPf9VhO72Bj_LhmCOBiL1Zbf8";
+const cors = require("cors");
+require("dotenv").config()
+// Telegram API Logic
+const token = process.env.TG_BOT_KEY;
 const webAppUrl = "https://miniapp.plexmad.ru/";
 const bot = new TelegramBot(token, { polling: true });
 
@@ -20,12 +23,19 @@ bot.on("message", async (msg) => {
     });
   }
 });
-const PORT = 5000;
 
-const app = express()
+// Node.Js Logic
+const PORT = process.env.PORT;
+
+const app = express();
+
+app.use(express.json());
+app.use(cors());
 
 app.get("/", (req, res) => {
-    res.status(200).json("200 return")
-})
+  res.status(200).json("200 return");
+});
 
-app.listen(PORT, () => { console.log("App started") })
+app.listen(PORT, () => {
+  console.log("App started on PORT", PORT);
+});

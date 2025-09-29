@@ -8,8 +8,7 @@ export const GameBlock = ({ gameTitle, description }: Game) => {
   return (
     <div
       className={styles.gameBlock}
-      onMouseDown={() => setIsPressed(true)}
-      onMouseUp={() => setIsPressed(false)}
+      onMouseEnter={() => setIsPressed(true)}
       onMouseLeave={() => setIsPressed(false)}
       onTouchStart={() => setIsPressed(true)}
       onTouchEnd={() => setIsPressed(false)}
