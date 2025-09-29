@@ -5,4 +5,36 @@
     height: 200px;
     padding: 0 20px;
     margin: 10px 40px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.gameTitle {
+    font-size: 40px;
+    transition: opacity 0.3s;
+}
+
+.gameDescription {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.7s;
+    font-size: 20px;
+    padding: 0 10px;
+}
+
+.gameBlock:hover .gameTitle {
+    opacity: 0;
+}
+
+.gameBlock:hover .gameDescription {
+    opacity: 1;
 }
