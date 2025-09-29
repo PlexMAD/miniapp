@@ -1,7 +1,7 @@
 const TelegramBot = require("node-telegram-bot-api");
 const express = require("express");
 const cors = require("cors");
-require("dotenv").config()
+require("dotenv").config();
 // Telegram API Logic
 const token = process.env.TG_BOT_KEY;
 const webAppUrl = "https://miniapp.plexmad.ru/";
@@ -26,16 +26,23 @@ bot.on("message", async (msg) => {
 
 // Node.Js Logic
 const PORT = process.env.PORT;
-
+const sequelize = require("./db");
 const app = express();
-
 app.use(express.json());
 app.use(cors());
+const start = async () => {
+  try {
+    await sequelize.authenticate()
+    await sequelize.sync()
+    app.listen(PORT, () => {
+      console.log("App started on PORT", PORT);
+    });
+  } catch (e) {
+    console.log(e);
+  }
+};
+start();
 
 app.get("/", (req, res) => {
   res.status(200).json("200 return");
-});
-
-app.listen(PORT, () => {
-  console.log("App started on PORT", PORT);
 });
