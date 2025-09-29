@@ -11,3 +11,7 @@ body {
     color: var(--tg-theme-text-color);
 }
 
+body {
+  font-family: 'Baloo 2', cursive;
+  font-weight: 500;
+}
