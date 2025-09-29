@@ -1,10 +1,32 @@
+import { useState } from "react";
 import type { Game } from "../../types/games";
 import styles from "./GameBlock.module.scss";
+
 export const GameBlock = ({ gameTitle, description }: Game) => {
+  const [isPressed, setIsPressed] = useState(false);
+
   return (
-    <div className={styles.gameBlock}>
-      <h2 className={styles.gameTitle}>{gameTitle}</h2>
-      <p className={styles.gameDescription}>{description}</p>
+    <div
+      className={styles.gameBlock}
+      onMouseDown={() => setIsPressed(true)}
+      onMouseUp={() => setIsPressed(false)}
+      onMouseLeave={() => setIsPressed(false)}
+      onTouchStart={() => setIsPressed(true)}
+      onTouchEnd={() => setIsPressed(false)}
+      onTouchCancel={() => setIsPressed(false)}
+    >
+      <h2
+        className={styles.gameTitle}
+        style={{ opacity: isPressed ? 0 : 1 }}
+      >
+        {gameTitle}
+      </h2>
+      <p
+        className={styles.gameDescription}
+        style={{ opacity: isPressed ? 1 : 0 }}
+      >
+        {description}
+      </p>
     </div>
   );
 };
