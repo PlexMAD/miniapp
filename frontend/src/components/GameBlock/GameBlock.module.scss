@@ -13,6 +13,10 @@
     position: relative;
     overflow: hidden;
     cursor: pointer;
+    user-select: none; 
+    -webkit-user-select: none; 
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 
 .gameTitle {
@@ -36,5 +40,12 @@
 }
 
 .gameBlock:hover .gameDescription {
+    opacity: 1;
+}
+
+.gameBlock:active .gameTitle {
+    opacity: 0;
+}
+.gameBlock:active .gameDescription {
     opacity: 1;
 }
