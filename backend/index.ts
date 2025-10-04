@@ -1,11 +1,20 @@
-const TelegramBot = require("node-telegram-bot-api");
-const express = require("express");
-const cors = require("cors");
-require("dotenv").config();
+import TelegramBot from "node-telegram-bot-api";
+import express from "express";
+import cors from "cors";
+import dotenv from "dotenv";
+import { PrismaClient } from "./generated/prisma/index.js";
+import usersRouter from "./routes/users.js";
+
+dotenv.config();
+
 // Telegram API Logic
+
 const token = process.env.TG_BOT_KEY;
 const webAppUrl = "https://miniapp.plexmad.ru/";
-const bot = new TelegramBot(token, { polling: true });
+if (!token) {
+  console.log("No TG Token found in env. Exiting.");
+}
+const bot = new TelegramBot(token || "TemplateToken", { polling: true });
 
 bot.on("message", async (msg) => {
   const chatId = msg.chat.id;
@@ -26,23 +35,22 @@ bot.on("message", async (msg) => {
 
 // Node.Js Logic
 const PORT = process.env.PORT;
-const sequelize = require("./db");
 const app = express();
+const prisma = new PrismaClient();
+
 app.use(express.json());
 app.use(cors());
 const start = async () => {
   try {
-    await sequelize.authenticate()
-    await sequelize.sync()
+    await prisma.$connect();
     app.listen(PORT, () => {
-      console.log("App started on PORT", PORT);
+      console.log(`🚀 Server started on PORT ${PORT}`);
     });
   } catch (e) {
-    console.log(e);
+    console.error("❌ Error starting server:", e);
   }
 };
+
 start();
 
-app.get("/", (req, res) => {
-  res.status(200).json("200 return");
-});
+app.use("/users", usersRouter);
