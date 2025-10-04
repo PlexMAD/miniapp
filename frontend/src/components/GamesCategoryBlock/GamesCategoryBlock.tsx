@@ -15,9 +15,11 @@ export const GamesCategoryBlock = ({
       <h2 className="text-center text-2xl">{title}</h2>
       {games.map((game) => (
         <GameBlock
-          key={game.gameTitle}
-          gameTitle={game.gameTitle}
+          key={game.id}
+          id={game.id}
+          title={game.title}
           description={game.description}
+          gameCategoryId={game.gameCategoryId}
         />
       ))}
     </>

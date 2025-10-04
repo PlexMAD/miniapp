@@ -1,4 +1,7 @@
 export interface Game {
-  gameTitle: string;
+  id: number;
+  title: string;
   description: string;
+  gameCategoryId: number;
+  premiumStatus?: boolean;
 }

@@ -1,8 +1,15 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState } from "react";
 import type { Game } from "../../types/games";
 import styles from "./GameBlock.module.scss";
 
-export const GameBlock = ({ gameTitle, description }: Game) => {
+export const GameBlock = ({
+  id,
+  title,
+  gameCategoryId,
+  description,
+  premiumStatus,
+}: Game) => {
   const [isPressed, setIsPressed] = useState(false);
 
   return (
@@ -14,11 +21,8 @@ export const GameBlock = ({ gameTitle, description }: Game) => {
       onTouchEnd={() => setIsPressed(false)}
       onTouchCancel={() => setIsPressed(false)}
     >
-      <h2
-        className={styles.gameTitle}
-        style={{ opacity: isPressed ? 0 : 1 }}
-      >
-        {gameTitle}
+      <h2 className={styles.gameTitle} style={{ opacity: isPressed ? 0 : 1 }}>
+        {title}
       </h2>
       <p
         className={styles.gameDescription}
