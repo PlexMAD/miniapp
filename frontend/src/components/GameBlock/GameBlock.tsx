@@ -1,14 +1,10 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState } from "react";
 import type { Game } from "../../types/games";
 import styles from "./GameBlock.module.scss";
 
 export const GameBlock = ({
-  id,
   title,
-  gameCategoryId,
   description,
-  premiumStatus,
 }: Game) => {
   const [isPressed, setIsPressed] = useState(false);
 
