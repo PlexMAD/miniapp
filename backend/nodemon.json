@@ -1,0 +1,6 @@
+{
+  "watch": ["*.ts", "routes"],
+  "ext": "ts",
+  "ignore": ["dist"],
+  "exec": "node -r ts-node/register index.ts"
+}
