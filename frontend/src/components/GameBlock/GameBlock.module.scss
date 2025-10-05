@@ -1,33 +1,58 @@
-.gameBlock {
-    background-color: var(--tg-theme-bg-color);
-    border: 1px violet solid;
-    max-width: 100%;
-    height: 200px;
-    padding: 0 20px;
-    margin: 10px 40px;
-    border-radius: 20px;
+.wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
+    height: 220px;
+    perspective: 1000px;
+}
+
+.card {
     position: relative;
-    overflow: hidden;
+    width: 280px;
+    height: 180px;
     cursor: pointer;
-    user-select: none;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
 }
 
-.gameTitle {
-    font-size: 40px;
-    transition: opacity 0.3s;
+.flipped {
+    transform: rotateY(180deg);
 }
 
-.gameDescription {
+.front,
+.back {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    transition: opacity 0.3s;
-    font-size: 20px;
-    padding: 0 10px;
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    backface-visibility: hidden;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+}
+
+.front {
+    background-color: #2563eb;
+    justify-content: center;
+}
+
+.back {
+    background-color: #16a34a;
+    transform: rotateY(180deg);
+    justify-content: center;
+    text-align: center;
+}
+
+.title {
+    margin: 0;
+    margin-top: auto;
+}
+
+.hint {
+    margin-top: auto;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.8);
 }

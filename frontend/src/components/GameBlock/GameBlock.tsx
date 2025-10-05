@@ -1,31 +1,25 @@
 import { useState } from "react";
+import classNames from "classnames";
 import type { Game } from "../../types/games";
 import styles from "./GameBlock.module.scss";
 
-export const GameBlock = ({
-  title,
-  description,
-}: Game) => {
-  const [isPressed, setIsPressed] = useState(false);
+export const GameBlock = ({ title, description }: Game) => {
+  const [flipped, setFlipped] = useState(false);
 
   return (
-    <div
-      className={styles.gameBlock}
-      onMouseEnter={() => setIsPressed(true)}
-      onMouseLeave={() => setIsPressed(false)}
-      onTouchStart={() => setIsPressed(true)}
-      onTouchEnd={() => setIsPressed(false)}
-      onTouchCancel={() => setIsPressed(false)}
-    >
-      <h2 className={styles.gameTitle} style={{ opacity: isPressed ? 0 : 1 }}>
-        {title}
-      </h2>
-      <p
-        className={styles.gameDescription}
-        style={{ opacity: isPressed ? 1 : 0 }}
+    <div className={styles.wrapper}>
+      <div
+        className={classNames(styles.card, { [styles.flipped]: flipped })}
+        onClick={() => setFlipped(!flipped)}
       >
-        {description}
-      </p>
+        <div className={styles.front}>
+          <h2 className={styles.title}>{title}</h2>
+          <span className={styles.hint}>Нажми, чтобы узнать правила</span>
+        </div>
+        <div className={styles.back}>
+          <p>{description}</p>
+        </div>
+      </div>
     </div>
   );
 };
