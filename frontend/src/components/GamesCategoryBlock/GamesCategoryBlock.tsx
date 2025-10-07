@@ -20,6 +20,7 @@ export const GamesCategoryBlock = ({
           title={game.title}
           description={game.description}
           gameCategoryId={game.gameCategoryId}
+          configId={game.configId}
         />
       ))}
     </>

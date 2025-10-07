@@ -7,6 +7,7 @@ import usersRouter from "./routes/users.ts";
 import gameCategoriesRouter from "./routes/gameCategories.ts";
 import gamesRouter from "./routes/games.ts";
 import cardsRouter from "./routes/cards.ts";
+import configsRouter from "./routes/configs.ts";
 
 dotenv.config();
 
@@ -60,3 +61,4 @@ app.use("/users", usersRouter);
 app.use("/gameCategories", gameCategoriesRouter);
 app.use("/games", gamesRouter);
 app.use("/cards", cardsRouter);
+app.use("/configs", configsRouter);

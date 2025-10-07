@@ -4,4 +4,5 @@ export interface Game {
   description: string;
   gameCategoryId: number;
   premiumStatus?: boolean;
+  configId: number;
 }

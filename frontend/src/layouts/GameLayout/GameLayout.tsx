@@ -47,7 +47,7 @@ const GameLayout = () => {
       </header>
 
       <main className={styles.main}>
-        <GamePage gameInfo={gameInfo} />
+        <GamePage gameInfo={gameInfo} configId={gameInfo.configId}/>
       </main>
     </div>
   );
