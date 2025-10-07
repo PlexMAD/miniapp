@@ -32,6 +32,7 @@
     backface-visibility: hidden;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
     padding: 1rem;
+    text-align: center;
 }
 
 .front {
@@ -55,4 +56,31 @@
     margin-top: auto;
     font-size: 0.75rem;
     color: rgba(255, 255, 255, 0.8);
+}
+
+.playButton {
+    border: none;
+    border-radius: 12px;
+    padding: 12px 12px;
+    background: linear-gradient(135deg, #ff4d4d, #ff1a75);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 10px rgba(255, 0, 0, 0.4);
+    cursor: pointer;
+    transition: all 0.25s ease;
+    margin-top: 1rem;
+    align-self: center;
+}
+
+.playButton:hover {
+    background: linear-gradient(135deg, #ff6666, #ff3385);
+    box-shadow: 0 6px 15px rgba(255, 0, 0, 0.6);
+    transform: scale(1.05);
+}
+
+.playButton:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 5px rgba(255, 0, 0, 0.4);
 }

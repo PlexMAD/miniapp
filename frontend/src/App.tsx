@@ -1,12 +1,28 @@
 import "./App.css";
-import MainPage from "./pages/MainPage/MainPage";
+import MainPage from "./layouts/MainPage/MainPage";
 import DefaultLayout from "./layouts/DefaultLayout";
 import { useTelegram } from "./hooks/useTelegram";
 import { useEffect } from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error
 const tg = window.Telegram.WebApp;
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: (
+      <DefaultLayout>
+        <MainPage />
+      </DefaultLayout>
+    ),
+  },
+  {
+    path: "playgame/:gameId",
+    element: <span>play some game</span>,
+  },
+]);
 
 function App() {
   const { onClose } = useTelegram();
@@ -19,9 +35,7 @@ function App() {
   return (
     <>
       <button onClick={onClose}></button>
-      <DefaultLayout>
-        <MainPage />
-      </DefaultLayout>
+      <RouterProvider router={router} />
     </>
   );
 }

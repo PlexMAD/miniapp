@@ -15,43 +15,51 @@ datasource db {
 }
 
 model gameCategories {
-  id              Int      @id @default(autoincrement())
-  title           String
-  hiddenCategory  Boolean
-  games           games[]  @relation("CategoryGames")
+  id             Int     @id @default(autoincrement())
+  title          String
+  hiddenCategory Boolean
+  games          games[] @relation("CategoryGames")
 }
 
 model games {
-  id              Int      @id @default(autoincrement())
-  title           String
-  description     String
-  gameCategoryId  Int
-  premiumStatus   Boolean
+  id             Int     @id @default(autoincrement())
+  title          String
+  description    String
+  gameCategoryId Int
+  premiumStatus  Boolean
+  configId       Int
 
-  category        gameCategories @relation("CategoryGames", fields: [gameCategoryId], references: [id])
-  cards           cards[]        @relation("GameCards")
+  category gameCategories @relation("CategoryGames", fields: [gameCategoryId], references: [id])
+  cards    cards[]        @relation("GameCards")
+  config   gameConfigs    @relation(fields: [configId], references: [id])
 }
 
 model userStatuses {
-  id      Int     @id @default(autoincrement())
-  title   String
-  users   users[]
+  id    Int     @id @default(autoincrement())
+  title String
+  users users[]
 }
 
 model users {
-  id         Int          @id @default(autoincrement())
+  id         Int      @id @default(autoincrement())
   name       String
   statusId   Int
-  created_at DateTime     @default(now())
+  created_at DateTime @default(now())
 
-  status     userStatuses @relation(fields: [statusId], references: [id])
+  status userStatuses @relation(fields: [statusId], references: [id])
 }
 
 model cards {
-  id          Int     @id @default(autoincrement())
+  id          Int    @id @default(autoincrement())
   title       String
   description String
   gameId      Int
 
-  game        games   @relation("GameCards", fields: [gameId], references: [id])
+  game games @relation("GameCards", fields: [gameId], references: [id])
+}
+
+model gameConfigs {
+  id            Int     @id @default(autoincrement())
+  cardSelection String
+  games         games[]
 }
