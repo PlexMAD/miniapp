@@ -6,6 +6,7 @@ import { PrismaClient } from "./generated/prisma/index.js";
 import usersRouter from "./routes/users.ts";
 import gameCategoriesRouter from "./routes/gameCategories.ts";
 import gamesRouter from "./routes/games.ts";
+import cardsRouter from "./routes/cards.ts";
 
 dotenv.config();
 
@@ -58,3 +59,4 @@ start();
 app.use("/users", usersRouter);
 app.use("/gameCategories", gameCategoriesRouter);
 app.use("/games", gamesRouter);
+app.use("/cards", cardsRouter);

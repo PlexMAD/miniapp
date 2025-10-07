@@ -13,4 +13,18 @@ router.get("/", async (req, res) => {
   }
 });
 
-export default router
+router.get("/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const game = await prisma.games.findUnique({ where: { id: Number(id) } });
+
+    if (!game) {
+      return res.status(404).json({ error: "Game not found" });
+    }
+    res.json(game);
+  } catch (err) {
+    res.status(500).json({ error: err });
+  }
+});
+
+export default router;

@@ -1,9 +1,10 @@
 import "./App.css";
-import MainPage from "./layouts/MainPage/MainPage";
-import DefaultLayout from "./layouts/DefaultLayout";
+import MainPage from "./pages/MainPage/MainPage";
+import DefaultLayout from "./layouts/DefaultLayout/DefaultLayout";
 import { useTelegram } from "./hooks/useTelegram";
 import { useEffect } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import GameLayout from "./layouts/GameLayout/GameLayout";
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error
@@ -20,7 +21,7 @@ const router = createBrowserRouter([
   },
   {
     path: "playgame/:gameId",
-    element: <span>play some game</span>,
+    element: <GameLayout />,
   },
 ]);
 
