@@ -62,6 +62,6 @@ model cards {
 model gameConfigs {
   id            Int     @id @default(autoincrement())
   cardSelection String
-  timeForACard  Int?
+  turnTime      Int?
   games         games[]
 }

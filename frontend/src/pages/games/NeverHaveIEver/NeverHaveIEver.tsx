@@ -29,10 +29,8 @@ const NeverHaveIEver = ({ gameConfig, cards }: NeverHaveIEverProps) => {
   const handleNextTurn = () => {
     if (!remainingCards.length) return;
 
-    // направление свайпа (чередуем для красоты)
     setSwipeDirection(playerTurn === 1 ? "right" : "left");
 
-    // анимация выхода карточки
     setTimeout(() => {
       const newDeck = remainingCards.slice(1);
       setRemainingCards(newDeck);
@@ -43,7 +41,6 @@ const NeverHaveIEver = ({ gameConfig, cards }: NeverHaveIEverProps) => {
         setCurrentCard(null);
       }
 
-      // переключаем игрока
       setPlayerTurn((prev) => (prev === 1 ? 2 : 1));
     }, 300);
   };

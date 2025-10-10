@@ -1,0 +1,124 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  height: 100%;
+  padding: 2rem;
+}
+
+.title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.scoreboard {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  color: #555;
+}
+
+.timer {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #673ab7;
+  margin-bottom: 1.2rem;
+}
+
+.card {
+  background: linear-gradient(135deg, #673ab7, #9575cd);
+  color: #fff;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 420px;
+  margin-bottom: 2rem;
+}
+
+.cardWord {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.cardDescription {
+  font-size: 1.1rem;
+  line-height: 1.4;
+}
+
+.buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.correctBtn,
+.skipBtn,
+.startBtn {
+  border: none;
+  border-radius: 0.8rem;
+  padding: 1rem 1.6rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  color: white;
+}
+
+.correctBtn {
+  background-color: #4caf50;
+
+  &:hover {
+    background-color: #388e3c;
+    transform: scale(1.05);
+  }
+}
+
+.skipBtn {
+  background-color: #f44336;
+
+  &:hover {
+    background-color: #c62828;
+    transform: scale(1.05);
+  }
+}
+
+.startBtn {
+  background-color: #2196f3;
+  padding: 1.2rem 2rem;
+  font-size: 1.2rem;
+
+  &:hover {
+    background-color: #1976d2;
+    transform: scale(1.05);
+  }
+}
+
+.preTurn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  margin-top: 2rem;
+}
+
+.waitingText {
+  font-size: 1.3rem;
+  color: #444;
+}
+
+.text {
+  font-size: 1.4rem;
+  margin-top: 1rem;
+  color: #333;
+}
+
+.score {
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+  color: #555;
+}

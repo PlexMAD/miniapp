@@ -44,7 +44,6 @@ const GamePage = ({
     queryKey: ["config", configId],
     queryFn: () => fetchConfig(configId),
   });
-  console.log(gameInfo.slug);
   const GameComponent = useMemo(() => {
     return GAME_COMPONENTS[gameInfo.slug ?? ""];
   }, [gameInfo.slug]);
@@ -68,7 +67,6 @@ const GamePage = ({
       </div>
     );
   }
-  console.log(GameComponent);
   if (!GameComponent) {
     return (
       <div className={styles.statusWrapper}>
