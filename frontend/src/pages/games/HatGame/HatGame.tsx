@@ -5,6 +5,7 @@ import { shuffleArray } from "../../../utils/shuffleArray";
 import NoCardsLeftBlock from "../../../components/CardBlock/NoCardsLeftBlock";
 import type { Card } from "../../../types/cards";
 import type { GameConfig } from "../../../types/gameConfig";
+import { Link } from "react-router-dom";
 
 const HatGame = ({
   cards,
@@ -133,6 +134,9 @@ const HatGame = ({
         <p className={styles.score}>
           Команда 1: {teamScores.team1} — Команда 2: {teamScores.team2}
         </p>
+        <Link to="/">
+          <button className={styles.nextBtn}>Вернуться на главный экран</button>
+        </Link>
       </div>
     );
   }
