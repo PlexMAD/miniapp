@@ -28,6 +28,7 @@ model games {
   gameCategoryId Int
   premiumStatus  Boolean
   configId       Int
+  slug           String
 
   category gameCategories @relation("CategoryGames", fields: [gameCategoryId], references: [id])
   cards    cards[]        @relation("GameCards")
@@ -61,5 +62,6 @@ model cards {
 model gameConfigs {
   id            Int     @id @default(autoincrement())
   cardSelection String
+  timeForACard  Int?
   games         games[]
 }
